@@ -9,3 +9,8 @@ def test_rover_facing_north_should_increment_y_by_one_when_moves():
     position=[1,2,'N']
     final_position = robot(position=position, movements=['M'])
     assert final_position == [1, 3, 'N']
+
+def test_rover_facing_north_should_face_west_when_rotate_to_left():
+    position=[1,2,'N']
+    final_position = robot(position=position, movements=['L'])
+    assert final_position == [1, 2, 'W']
