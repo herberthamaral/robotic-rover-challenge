@@ -5,13 +5,17 @@ This is a simple python 2 (it can probably work on python 3 -- I haven't tested 
 # Running
 
 You'll need to clone this repo and do a simple setup in order to run this:
-  
-  git clone https://github.com/herberthamaral/robotic-rover-challenge.git
-  cd robotic-rover-challenge
-  mkvirtualenv -a $(pwd) robotic-rover-challenge
-  pip install -r requirements.txt
-  py.test #optional, just if you want to see it green :)
-  python robot.py
+
+
+    
+    git clone https://github.com/herberthamaral/robotic-rover-challenge.git
+    cd robotic-rover-challenge
+    mkvirtualenv -a $(pwd) robotic-rover-challenge
+    pip install -r requirements.txt
+    py.test
+    python robot.py
+    
+
 
 # The problem
 
