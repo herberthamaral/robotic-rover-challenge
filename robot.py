@@ -1,3 +1,7 @@
+TURNS = {
+    'L':{'N':'W', 'E':'N', 'S':'E', 'W':'S'},
+    'R':{'N':'E', 'E':'S', 'S':'W', 'W':'N'}
+}
 def robot(position, movements, debug=False):
     for m in movements:
         if m == 'M':
@@ -10,21 +14,7 @@ def robot(position, movements, debug=False):
             elif position[2] == 'W':
                 position[0] -= 1
         elif m == 'L':
-            if position[2] == 'N':
-                position[2] = 'W'
-            elif position[2] == 'E':
-                position[2] = 'N'
-            elif position[2] == 'S':
-                position[2] = 'E'
-            elif position[2] == 'W':
-                position[2] = 'S'
+            position[2] = TURNS[m][position[2]]
         elif m == 'R':
-            if position[2] == 'N':
-                position[2] = 'E'
-            elif position[2] == 'E':
-                position[2] = 'S'
-            elif position[2] == 'S':
-                position[2] = 'W'
-            elif position[2] == 'W':
-                position[2] = 'N'
+            position[2] = TURNS[m][position[2]]
     return position
