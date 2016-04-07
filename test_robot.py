@@ -49,3 +49,30 @@ def test_rover_facing_west_should_face_north_when_rotate_to_right():
     position=[1,2,'W']
     final_position = robot(position=position, movements=['R'])
     assert final_position == [1, 2, 'N']
+
+def test_rover_facing_east_should_face_north_when_rotate_to_left():
+    position=[1,2,'E']
+    final_position = robot(position=position, movements=['L'])
+    assert final_position == [1, 2, 'N']
+
+def test_rover_facing_south_should_face_east_when_rotate_to_left():
+    position=[1,2,'S']
+    final_position = robot(position=position, movements=['L'])
+    assert final_position == [1, 2, 'E']
+
+def test_rover_facing_west_should_face_south_when_rotate_to_left():
+    position=[1,2,'W']
+    final_position = robot(position=position, movements=['L'])
+    assert final_position == [1, 2, 'S']
+
+def test_case_example_1():
+    position = [1, 2, 'N']
+    movements = 'LMLMLMLMM'
+    final_expected_position = [1, 3, 'N']
+    assert robot(position, movements) == final_expected_position
+
+def test_case_example_2():
+    position = [3, 3, 'E']
+    movements = 'MMRMMRMRRM'
+    final_expected_position = [5, 1, 'E']
+    assert robot(position, movements) == final_expected_position

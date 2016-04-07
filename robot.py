@@ -1,4 +1,4 @@
-def robot(position, movements):
+def robot(position, movements, debug=False):
     for m in movements:
         if m == 'M':
             if position[2] == 'N':
@@ -12,6 +12,12 @@ def robot(position, movements):
         elif m == 'L':
             if position[2] == 'N':
                 position[2] = 'W'
+            elif position[2] == 'E':
+                position[2] = 'N'
+            elif position[2] == 'S':
+                position[2] = 'E'
+            elif position[2] == 'W':
+                position[2] = 'S'
         elif m == 'R':
             if position[2] == 'N':
                 position[2] = 'E'
