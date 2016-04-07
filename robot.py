@@ -1,3 +1,4 @@
+X, Y, FACE = 0, 1, 2
 TURNS = {
     'L':{'N':'W', 'E':'N', 'S':'E', 'W':'S'},
     'R':{'N':'E', 'E':'S', 'S':'W', 'W':'N'}
@@ -8,10 +9,7 @@ MOVEMENTS = {
 def robot(position, movements, debug=False):
     for m in movements:
         if m == 'M':
-            position[0] += MOVEMENTS[position[2]].get('x', 0)
-            position[1] += MOVEMENTS[position[2]].get('y', 0)
-        elif m == 'L':
-            position[2] = TURNS[m][position[2]]
-        elif m == 'R':
-            position[2] = TURNS[m][position[2]]
+            position[X] += MOVEMENTS[position[FACE]].get('x', 0)
+            position[Y] += MOVEMENTS[position[FACE]].get('y', 0)
+        position[FACE] = TURNS[m].get(position[FACE], position[FACE]) if m in TURNS else position[FACE]
     return position
